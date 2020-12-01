@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+  <title>Home Page</title> 
+      
+  <style type="text/css" media="screen"> 
+    body { 
+      background-color: skyblue; 
+      text-decoration-color: white; 
+      font-size:7em;  
+    } 
+  </style> 
+</head> 
+  
+<body> 
+  <center><%=data.name%></center> 
+</body> 
+
+<p1>Players - <%=data.playerCount%>/<%=data.maxPlayers%></p1>
+<div></div>
+<center>MOTD</center>
+<center><%=data.motd%></center>
+<h3>Last Online</h3>
+<h5><%=date%><h5>
+<ul>
+  <% plugins.forEach(function(plugin){ %>
+    <li> <%=plugin%> </li>
+  <% }) %>
+</ul>
+  
+</html> 
