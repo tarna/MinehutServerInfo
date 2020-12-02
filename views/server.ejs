@@ -2,29 +2,48 @@
 <html> 
   
 <head> 
-  <title>Home Page</title> 
+  <title><%=data.name%></title> 
       
   <style type="text/css" media="screen"> 
     body { 
       background-color: skyblue; 
       text-decoration-color: white; 
-      font-size:7em;  
+      font-size:4em;  
     } 
+
+		table, th, td {
+  		border: 1px solid black;
+		}
   </style> 
+
+	<script>
+		
+	</script>
+
 </head> 
   
 <body> 
-  <center><%=data.name%></center> 
+  <center><b><%=data.name%></b></center> 
+
+	<table>
+		<tr>
+			<th>Player Count</th>
+			<th>MOTD</th>
+			<th>Last Online</th>
+		</tr>
+		<tr>
+			<td><%=data.playerCount%>/<%=data.maxPlayers%></td>
+			<td><%=data.motd%></td>
+			<td><%=date%></td>
+		</tr>
+	</table>
+
 </body> 
 
-<p1>Players - <%=data.playerCount%>/<%=data.maxPlayers%></p1>
-<div></div>
-<center>MOTD</center>
-<center><%=data.motd%></center>
-<h3>Last Online</h3>
-<h5><%=date%><h5>
+<h2><center>Plugins</center></h2>
+
 <ul>
-  <% plugins.forEach(function(plugin){ %>
+  <% plugins.forEach(plugin => { %>
     <li> <%=plugin%> </li>
   <% }) %>
 </ul>

@@ -12,6 +12,12 @@ const fetch = require('node-fetch');
 
 var date = require('unix-date');
 
+app.get('/', (req, res) => {
+
+	res.render('main')
+
+});
+
 app.get('/server/:server', async (req, res) => {
 	
 	let server = req.params.server
@@ -25,10 +31,8 @@ app.get('/server/:server', async (req, res) => {
     const list = info.body.server.active_plugins;
     
     all.filter(x => list.includes(x._id)).forEach(x => plugins.push(x.name));
-		console.log(plugins)
+		res.render('server', {data: info.body.server, date: lastOnline, plugins: plugins})
 	})
-	
-	res.render('server', {data: info.body.server, date: lastOnline, plugins: plugins});
 
 });
 
